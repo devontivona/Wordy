@@ -1,0 +1,836 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		910E3EA114B7E2EB003FD30D /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E3EA014B7E2EB003FD30D /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		910E3EA414B7E40C003FD30D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E3EA314B7E40C003FD30D /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9115856B14B798610058855D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9115856A14B798610058855D /* MBProgressHUD.m */; };
+		9122B26B14B8E79B0069609B /* ERIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9122B26A14B8E79B0069609B /* ERIcon57.png */; };
+		9148CA4E14B1700900061678 /* WordyTabBarItemBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9148CA4C14B1700900061678 /* WordyTabBarItemBackground.png */; };
+		9148CA4F14B1700900061678 /* WordyTabBarItemBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9148CA4D14B1700900061678 /* WordyTabBarItemBackground@2x.png */; };
+		9157B37214CE014000852AE4 /* wordnikApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9157B37114CE014000852AE4 /* wordnikApiKey.txt */; };
+		915B0E8314B277F400BF24AD /* WordOfTheDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B0E8214B277F400BF24AD /* WordOfTheDay.m */; };
+		9164CA3614AD2BFD009C84C6 /* ERIcon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9164CA3514AD2BFD009C84C6 /* ERIcon114.png */; };
+		91671438142B9F980027615A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671437142B9F980027615A /* UIKit.framework */; };
+		9167143A142B9F980027615A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671439142B9F980027615A /* Foundation.framework */; };
+		9167143C142B9F980027615A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167143B142B9F980027615A /* CoreGraphics.framework */; };
+		91671442142B9F980027615A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91671440142B9F980027615A /* InfoPlist.strings */; };
+		91671444142B9F980027615A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91671443142B9F980027615A /* main.m */; };
+		91671448142B9F980027615A /* WordyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91671447142B9F980027615A /* WordyAppDelegate.m */; };
+		9167144B142B9F980027615A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91671449142B9F980027615A /* MainWindow.xib */; };
+		9167144E142B9F980027615A /* WordyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9167144D142B9F980027615A /* WordyViewController.m */; };
+		91671451142B9F980027615A /* WordyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9167144F142B9F980027615A /* WordyViewController.xib */; };
+		91671486142BA0C70027615A /* libRestKitCoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167147F142B9FFC0027615A /* libRestKitCoreData.a */; };
+		91671487142BA0C70027615A /* libRestKitJSONParserYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671477142B9FFC0027615A /* libRestKitJSONParserYAJL.a */; };
+		91671488142BA0C70027615A /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167146F142B9FFC0027615A /* libRestKitNetwork.a */; };
+		91671489142BA0C70027615A /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671471142B9FFC0027615A /* libRestKitObjectMapping.a */; };
+		9167148A142BA0C70027615A /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671473142B9FFC0027615A /* libRestKitSupport.a */; };
+		9167148C142BA0D70027615A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167148B142BA0D70027615A /* CFNetwork.framework */; };
+		9167148E142BA0E10027615A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167148D142BA0E10027615A /* CoreData.framework */; };
+		91671490142BA0EF0027615A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9167148F142BA0EF0027615A /* MobileCoreServices.framework */; };
+		91671492142BA0F60027615A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91671491142BA0F60027615A /* SystemConfiguration.framework */; };
+		91832E9114AE3B2700CFA844 /* WDHeaderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832E8F14AE3B2700CFA844 /* WDHeaderBackground.png */; };
+		91832E9214AE3B2700CFA844 /* WDHeaderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832E9014AE3B2700CFA844 /* WDHeaderBackground@2x.png */; };
+		91832EA714AE414900CFA844 /* ERNavigationButtonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832E9F14AE414900CFA844 /* ERNavigationButtonBack.png */; };
+		91832EA814AE414900CFA844 /* ERNavigationButtonBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA014AE414900CFA844 /* ERNavigationButtonBack@2x.png */; };
+		91832EA914AE414900CFA844 /* ERNavigationButtonBackPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA114AE414900CFA844 /* ERNavigationButtonBackPressed.png */; };
+		91832EAA14AE414900CFA844 /* ERNavigationButtonBackPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA214AE414900CFA844 /* ERNavigationButtonBackPressed@2x.png */; };
+		91832EAB14AE414900CFA844 /* ERNavigationButtonSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA314AE414900CFA844 /* ERNavigationButtonSquare.png */; };
+		91832EAC14AE414900CFA844 /* ERNavigationButtonSquare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA414AE414900CFA844 /* ERNavigationButtonSquare@2x.png */; };
+		91832EAD14AE414900CFA844 /* ERNavigationButtonSquarePressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA514AE414900CFA844 /* ERNavigationButtonSquarePressed.png */; };
+		91832EAE14AE414900CFA844 /* ERNavigationButtonSquarePressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EA614AE414900CFA844 /* ERNavigationButtonSquarePressed@2x.png */; };
+		91832EC614AE6BAA00CFA844 /* WordyBackgroundNoise.png in Resources */ = {isa = PBXBuildFile; fileRef = 91832EC514AE6BAA00CFA844 /* WordyBackgroundNoise.png */; };
+		91832ECC14AE776900CFA844 /* WordyUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91832ECB14AE776900CFA844 /* WordyUISearchBar.m */; };
+		9187E6CB1432708E0081DFA1 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9187E6C91432708D0081DFA1 /* DefinitionViewController.m */; };
+		9187E6CC1432708E0081DFA1 /* DefinitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9187E6CA1432708D0081DFA1 /* DefinitionView.xib */; };
+		9187E6E4143278EE0081DFA1 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9187E6E3143278ED0081DFA1 /* Definition.m */; };
+		9187E6E61432792A0081DFA1 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 9187E6E51432792A0081DFA1 /* Word.m */; };
+		9187E6F5143288510081DFA1 /* DefinitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9187E6F4143288510081DFA1 /* DefinitionCell.xib */; };
+		9193521814CE398E009232F9 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193521614CE398E009232F9 /* InformationViewController.m */; };
+		9193521914CE398E009232F9 /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9193521714CE398E009232F9 /* InformationViewController.xib */; };
+		9193521C14CE4380009232F9 /* WordyInformation.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193521A14CE4380009232F9 /* WordyInformation.png */; };
+		9193521D14CE4380009232F9 /* WordyInformation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9193521B14CE4380009232F9 /* WordyInformation@2x.png */; };
+		9193524014CE585C009232F9 /* HoeflerText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9193523F14CE585B009232F9 /* HoeflerText-RegularItalic.otf */; };
+		9193524314CE5962009232F9 /* HoeflerText-RegularItalicSwSC.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9193524214CE5962009232F9 /* HoeflerText-RegularItalicSwSC.otf */; };
+		9193524514CE5971009232F9 /* HoeflerText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9193524414CE5971009232F9 /* HoeflerText-BoldItalic.otf */; };
+		9193524714CE5986009232F9 /* HoeflerText-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9193524614CE5986009232F9 /* HoeflerText-Roman.otf */; };
+		9193524A14CE6088009232F9 /* SSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193524914CE6088009232F9 /* SSLabel.m */; };
+		9193524D14CE8915009232F9 /* Pronunciation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193524C14CE8915009232F9 /* Pronunciation.m */; };
+		91A2DAC214B0DE7000C40BF7 /* WordyTabBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 91A2DAC014B0DE7000C40BF7 /* WordyTabBarBackground.png */; };
+		91A2DAC314B0DE7000C40BF7 /* WordyTabBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91A2DAC114B0DE7000C40BF7 /* WordyTabBarBackground@2x.png */; };
+		91A2DAC914B0FD7D00C40BF7 /* FlipsideTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A2DAC814B0FD7D00C40BF7 /* FlipsideTabBarController.m */; };
+		91AF344614AD4A44004ADC4D /* RelatedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AF344514AD4A44004ADC4D /* RelatedView.xib */; };
+		91AF344914AD4A65004ADC4D /* RelatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AF344814AD4A65004ADC4D /* RelatedViewController.m */; };
+		91C4652714AD3DD400553F42 /* RelatedWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C4652614AD3DD400553F42 /* RelatedWords.m */; };
+		91F52A7A14B7AA01000CE1FB /* WordyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7814B7AA01000CE1FB /* WordyLogo.png */; };
+		91F52A7B14B7AA01000CE1FB /* WordyLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7914B7AA01000CE1FB /* WordyLogo@2x.png */; };
+		91F52A8014B7C4C0000CE1FB /* WordyBasicButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7C14B7C4C0000CE1FB /* WordyBasicButton.png */; };
+		91F52A8114B7C4C0000CE1FB /* WordyBasicButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7D14B7C4C0000CE1FB /* WordyBasicButton@2x.png */; };
+		91F52A8214B7C4C0000CE1FB /* WordyBasicButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7E14B7C4C0000CE1FB /* WordyBasicButtonPressed.png */; };
+		91F52A8314B7C4C0000CE1FB /* WordyBasicButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7F14B7C4C0000CE1FB /* WordyBasicButtonPressed@2x.png */; };
+		91F52A8614B7CB54000CE1FB /* WordySynonymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8414B7CB54000CE1FB /* WordySynonymIcon.png */; };
+		91F52A8714B7CB54000CE1FB /* WordySynonymIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8514B7CB54000CE1FB /* WordySynonymIcon@2x.png */; };
+		91F52A8C14B7CB76000CE1FB /* WordyAntonymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8814B7CB76000CE1FB /* WordyAntonymIcon.png */; };
+		91F52A8D14B7CB76000CE1FB /* WordyAntonymIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8914B7CB76000CE1FB /* WordyAntonymIcon@2x.png */; };
+		91F52A8E14B7CB76000CE1FB /* WordyDefinitionIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8A14B7CB76000CE1FB /* WordyDefinitionIcon.png */; };
+		91F52A8F14B7CB76000CE1FB /* WordyDefinitionIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A8B14B7CB76000CE1FB /* WordyDefinitionIcon@2x.png */; };
+		91F52A9214B7CBCD000CE1FB /* WordyReferenceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A9014B7CBCD000CE1FB /* WordyReferenceIcon.png */; };
+		91F52A9314B7CBCD000CE1FB /* WordyReferenceIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A9114B7CBCD000CE1FB /* WordyReferenceIcon@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9167146E142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A07FC1255161B00976E89;
+			remoteInfo = RestKitNetwork;
+		};
+		91671470142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A08031255162C00976E89;
+			remoteInfo = RestKitObjectMapping;
+		};
+		91671472142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A080C12551D3000976E89;
+			remoteInfo = RestKitSupport;
+		};
+		91671474142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 20808DBD13DE8CDC000A156A;
+			remoteInfo = "RestKitJSONParser+NXJSON";
+		};
+		91671476142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E64F125231F600531FA8;
+			remoteInfo = "RestKitJSONParser+YAJL";
+		};
+		91671478142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2590E66B1252353700531FA8;
+			remoteInfo = "RestKitJSONParser+SBJSON";
+		};
+		9167147A142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73057FD11331AD2E001908EE;
+			remoteInfo = "RestKitJSONParser+JSONKit";
+		};
+		9167147C142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25BD43BD1340315800DBACDD;
+			remoteInfo = "RestKitXMLParser+Libxml";
+		};
+		9167147E142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 253A081412551D5300976E89;
+			remoteInfo = RestKitCoreData;
+		};
+		91671480142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2523360511E79F090048F9B4;
+			remoteInfo = RestKitThree20;
+		};
+		91671482142B9FFC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
+			remoteInfo = UISpec;
+		};
+		91671484142BA0AC0027615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 255B7588133BABBF00ED76AD;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		910E3E9F14B7E2EB003FD30D /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		910E3EA014B7E2EB003FD30D /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		910E3EA214B7E40C003FD30D /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		910E3EA314B7E40C003FD30D /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		9115856914B798610058855D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9115856A14B798610058855D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9122B26A14B8E79B0069609B /* ERIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERIcon57.png; sourceTree = "<group>"; };
+		9148CA4C14B1700900061678 /* WordyTabBarItemBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyTabBarItemBackground.png; sourceTree = "<group>"; };
+		9148CA4D14B1700900061678 /* WordyTabBarItemBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyTabBarItemBackground@2x.png"; sourceTree = "<group>"; };
+		914CEF9B142D2F49008F5B7E /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		9157B37114CE014000852AE4 /* wordnikApiKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordnikApiKey.txt; sourceTree = "<group>"; };
+		915B0E8114B277F400BF24AD /* WordOfTheDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordOfTheDay.h; sourceTree = "<group>"; };
+		915B0E8214B277F400BF24AD /* WordOfTheDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordOfTheDay.m; sourceTree = "<group>"; };
+		9164CA3514AD2BFD009C84C6 /* ERIcon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERIcon114.png; sourceTree = "<group>"; };
+		91671433142B9F980027615A /* Wordy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91671437142B9F980027615A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		91671439142B9F980027615A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9167143B142B9F980027615A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9167143F142B9F980027615A /* Wordy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wordy-Info.plist"; sourceTree = "<group>"; };
+		91671441142B9F980027615A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		91671443142B9F980027615A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		91671445142B9F980027615A /* Wordy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordy-Prefix.pch"; sourceTree = "<group>"; };
+		91671446142B9F980027615A /* WordyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordyAppDelegate.h; sourceTree = "<group>"; };
+		91671447142B9F980027615A /* WordyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordyAppDelegate.m; sourceTree = "<group>"; };
+		9167144A142B9F980027615A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		9167144C142B9F980027615A /* WordyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordyViewController.h; sourceTree = "<group>"; };
+		9167144D142B9F980027615A /* WordyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordyViewController.m; sourceTree = "<group>"; };
+		91671450142B9F980027615A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WordyViewController.xib; sourceTree = "<group>"; };
+		9167145A142B9FFB0027615A /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		9167148B142BA0D70027615A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9167148D142BA0E10027615A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9167148F142BA0EF0027615A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		91671491142BA0F60027615A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		91832E8F14AE3B2700CFA844 /* WDHeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WDHeaderBackground.png; sourceTree = "<group>"; };
+		91832E9014AE3B2700CFA844 /* WDHeaderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WDHeaderBackground@2x.png"; sourceTree = "<group>"; };
+		91832E9F14AE414900CFA844 /* ERNavigationButtonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERNavigationButtonBack.png; sourceTree = "<group>"; };
+		91832EA014AE414900CFA844 /* ERNavigationButtonBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERNavigationButtonBack@2x.png"; sourceTree = "<group>"; };
+		91832EA114AE414900CFA844 /* ERNavigationButtonBackPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERNavigationButtonBackPressed.png; sourceTree = "<group>"; };
+		91832EA214AE414900CFA844 /* ERNavigationButtonBackPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERNavigationButtonBackPressed@2x.png"; sourceTree = "<group>"; };
+		91832EA314AE414900CFA844 /* ERNavigationButtonSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERNavigationButtonSquare.png; sourceTree = "<group>"; };
+		91832EA414AE414900CFA844 /* ERNavigationButtonSquare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERNavigationButtonSquare@2x.png"; sourceTree = "<group>"; };
+		91832EA514AE414900CFA844 /* ERNavigationButtonSquarePressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERNavigationButtonSquarePressed.png; sourceTree = "<group>"; };
+		91832EA614AE414900CFA844 /* ERNavigationButtonSquarePressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERNavigationButtonSquarePressed@2x.png"; sourceTree = "<group>"; };
+		91832EC514AE6BAA00CFA844 /* WordyBackgroundNoise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyBackgroundNoise.png; sourceTree = "<group>"; };
+		91832ECA14AE776900CFA844 /* WordyUISearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordyUISearchBar.h; sourceTree = "<group>"; };
+		91832ECB14AE776900CFA844 /* WordyUISearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordyUISearchBar.m; sourceTree = "<group>"; };
+		9187E5E314322C380081DFA1 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		9187E6C81432708C0081DFA1 /* DefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionViewController.h; sourceTree = "<group>"; };
+		9187E6C91432708D0081DFA1 /* DefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionViewController.m; sourceTree = "<group>"; };
+		9187E6CA1432708D0081DFA1 /* DefinitionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefinitionView.xib; sourceTree = "<group>"; };
+		9187E6E3143278ED0081DFA1 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
+		9187E6E51432792A0081DFA1 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		9187E6F4143288510081DFA1 /* DefinitionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefinitionCell.xib; sourceTree = "<group>"; };
+		9193521514CE398E009232F9 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		9193521614CE398E009232F9 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		9193521714CE398E009232F9 /* InformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationViewController.xib; sourceTree = "<group>"; };
+		9193521A14CE4380009232F9 /* WordyInformation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyInformation.png; sourceTree = "<group>"; };
+		9193521B14CE4380009232F9 /* WordyInformation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyInformation@2x.png"; sourceTree = "<group>"; };
+		9193523F14CE585B009232F9 /* HoeflerText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoeflerText-RegularItalic.otf"; sourceTree = "<group>"; };
+		9193524214CE5962009232F9 /* HoeflerText-RegularItalicSwSC.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoeflerText-RegularItalicSwSC.otf"; sourceTree = "<group>"; };
+		9193524414CE5971009232F9 /* HoeflerText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoeflerText-BoldItalic.otf"; sourceTree = "<group>"; };
+		9193524614CE5986009232F9 /* HoeflerText-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoeflerText-Roman.otf"; sourceTree = "<group>"; };
+		9193524814CE6088009232F9 /* SSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLabel.h; sourceTree = "<group>"; };
+		9193524914CE6088009232F9 /* SSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLabel.m; sourceTree = "<group>"; };
+		9193524B14CE8915009232F9 /* Pronunciation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pronunciation.h; sourceTree = "<group>"; };
+		9193524C14CE8915009232F9 /* Pronunciation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pronunciation.m; sourceTree = "<group>"; };
+		91A2DAC014B0DE7000C40BF7 /* WordyTabBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyTabBarBackground.png; sourceTree = "<group>"; };
+		91A2DAC114B0DE7000C40BF7 /* WordyTabBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyTabBarBackground@2x.png"; sourceTree = "<group>"; };
+		91A2DAC714B0FD7D00C40BF7 /* FlipsideTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideTabBarController.h; sourceTree = "<group>"; };
+		91A2DAC814B0FD7D00C40BF7 /* FlipsideTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideTabBarController.m; sourceTree = "<group>"; };
+		91AF344514AD4A44004ADC4D /* RelatedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelatedView.xib; sourceTree = "<group>"; };
+		91AF344714AD4A65004ADC4D /* RelatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedViewController.h; sourceTree = "<group>"; };
+		91AF344814AD4A65004ADC4D /* RelatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedViewController.m; sourceTree = "<group>"; };
+		91C4652514AD3DD400553F42 /* RelatedWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedWords.h; sourceTree = "<group>"; };
+		91C4652614AD3DD400553F42 /* RelatedWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedWords.m; sourceTree = "<group>"; };
+		91F52A7814B7AA01000CE1FB /* WordyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyLogo.png; sourceTree = "<group>"; };
+		91F52A7914B7AA01000CE1FB /* WordyLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyLogo@2x.png"; sourceTree = "<group>"; };
+		91F52A7C14B7C4C0000CE1FB /* WordyBasicButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyBasicButton.png; sourceTree = "<group>"; };
+		91F52A7D14B7C4C0000CE1FB /* WordyBasicButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyBasicButton@2x.png"; sourceTree = "<group>"; };
+		91F52A7E14B7C4C0000CE1FB /* WordyBasicButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyBasicButtonPressed.png; sourceTree = "<group>"; };
+		91F52A7F14B7C4C0000CE1FB /* WordyBasicButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyBasicButtonPressed@2x.png"; sourceTree = "<group>"; };
+		91F52A8414B7CB54000CE1FB /* WordySynonymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordySynonymIcon.png; sourceTree = "<group>"; };
+		91F52A8514B7CB54000CE1FB /* WordySynonymIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordySynonymIcon@2x.png"; sourceTree = "<group>"; };
+		91F52A8814B7CB76000CE1FB /* WordyAntonymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyAntonymIcon.png; sourceTree = "<group>"; };
+		91F52A8914B7CB76000CE1FB /* WordyAntonymIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyAntonymIcon@2x.png"; sourceTree = "<group>"; };
+		91F52A8A14B7CB76000CE1FB /* WordyDefinitionIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyDefinitionIcon.png; sourceTree = "<group>"; };
+		91F52A8B14B7CB76000CE1FB /* WordyDefinitionIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyDefinitionIcon@2x.png"; sourceTree = "<group>"; };
+		91F52A9014B7CBCD000CE1FB /* WordyReferenceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyReferenceIcon.png; sourceTree = "<group>"; };
+		91F52A9114B7CBCD000CE1FB /* WordyReferenceIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WordyReferenceIcon@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		91671430142B9F980027615A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91671492142BA0F60027615A /* SystemConfiguration.framework in Frameworks */,
+				91671490142BA0EF0027615A /* MobileCoreServices.framework in Frameworks */,
+				9167148E142BA0E10027615A /* CoreData.framework in Frameworks */,
+				9167148C142BA0D70027615A /* CFNetwork.framework in Frameworks */,
+				91671486142BA0C70027615A /* libRestKitCoreData.a in Frameworks */,
+				91671487142BA0C70027615A /* libRestKitJSONParserYAJL.a in Frameworks */,
+				91671488142BA0C70027615A /* libRestKitNetwork.a in Frameworks */,
+				91671489142BA0C70027615A /* libRestKitObjectMapping.a in Frameworks */,
+				9167148A142BA0C70027615A /* libRestKitSupport.a in Frameworks */,
+				91671438142B9F980027615A /* UIKit.framework in Frameworks */,
+				9167143A142B9F980027615A /* Foundation.framework in Frameworks */,
+				9167143C142B9F980027615A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		910E3EC714B8D1DC003FD30D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9193524B14CE8915009232F9 /* Pronunciation.h */,
+				9193524C14CE8915009232F9 /* Pronunciation.m */,
+				915B0E8114B277F400BF24AD /* WordOfTheDay.h */,
+				915B0E8214B277F400BF24AD /* WordOfTheDay.m */,
+				914CEF9B142D2F49008F5B7E /* Definition.h */,
+				9187E6E3143278ED0081DFA1 /* Definition.m */,
+				91C4652514AD3DD400553F42 /* RelatedWords.h */,
+				91C4652614AD3DD400553F42 /* RelatedWords.m */,
+				9187E5E314322C380081DFA1 /* Word.h */,
+				9187E6E51432792A0081DFA1 /* Word.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		910E3EC814B8D1F1003FD30D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9193521714CE398E009232F9 /* InformationViewController.xib */,
+				91671449142B9F980027615A /* MainWindow.xib */,
+				9167144F142B9F980027615A /* WordyViewController.xib */,
+				9187E6CA1432708D0081DFA1 /* DefinitionView.xib */,
+				91AF344514AD4A44004ADC4D /* RelatedView.xib */,
+				9187E6F4143288510081DFA1 /* DefinitionCell.xib */,
+				91832ECA14AE776900CFA844 /* WordyUISearchBar.h */,
+				91832ECB14AE776900CFA844 /* WordyUISearchBar.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		910E3EC914B8D21C003FD30D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91A2DAC714B0FD7D00C40BF7 /* FlipsideTabBarController.h */,
+				91A2DAC814B0FD7D00C40BF7 /* FlipsideTabBarController.m */,
+				9167144C142B9F980027615A /* WordyViewController.h */,
+				9167144D142B9F980027615A /* WordyViewController.m */,
+				9187E6C81432708C0081DFA1 /* DefinitionViewController.h */,
+				9187E6C91432708D0081DFA1 /* DefinitionViewController.m */,
+				91AF344714AD4A65004ADC4D /* RelatedViewController.h */,
+				91AF344814AD4A65004ADC4D /* RelatedViewController.m */,
+				9193521514CE398E009232F9 /* InformationViewController.h */,
+				9193521614CE398E009232F9 /* InformationViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		91671428142B9F980027615A = {
+			isa = PBXGroup;
+			children = (
+				9122B26A14B8E79B0069609B /* ERIcon57.png */,
+				9164CA3514AD2BFD009C84C6 /* ERIcon114.png */,
+				9167145A142B9FFB0027615A /* RestKit.xcodeproj */,
+				9167143D142B9F980027615A /* Wordy */,
+				91671436142B9F980027615A /* Frameworks */,
+				91671434142B9F980027615A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91671434142B9F980027615A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91671433142B9F980027615A /* Wordy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		91671436142B9F980027615A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91671491142BA0F60027615A /* SystemConfiguration.framework */,
+				9167148F142BA0EF0027615A /* MobileCoreServices.framework */,
+				9167148D142BA0E10027615A /* CoreData.framework */,
+				9167148B142BA0D70027615A /* CFNetwork.framework */,
+				91671437142B9F980027615A /* UIKit.framework */,
+				91671439142B9F980027615A /* Foundation.framework */,
+				9167143B142B9F980027615A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9167143D142B9F980027615A /* Wordy */ = {
+			isa = PBXGroup;
+			children = (
+				9193524814CE6088009232F9 /* SSLabel.h */,
+				9193524914CE6088009232F9 /* SSLabel.m */,
+				9193524114CE5938009232F9 /* Fonts */,
+				91671446142B9F980027615A /* WordyAppDelegate.h */,
+				91671447142B9F980027615A /* WordyAppDelegate.m */,
+				910E3EC714B8D1DC003FD30D /* Model */,
+				910E3EC814B8D1F1003FD30D /* View */,
+				910E3EC914B8D21C003FD30D /* Controller */,
+				91A66B1E145376A7009ED381 /* Images */,
+				9167143E142B9F980027615A /* Supporting Files */,
+			);
+			path = Wordy;
+			sourceTree = "<group>";
+		};
+		9167143E142B9F980027615A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9157B37114CE014000852AE4 /* wordnikApiKey.txt */,
+				9115856914B798610058855D /* MBProgressHUD.h */,
+				9115856A14B798610058855D /* MBProgressHUD.m */,
+				910E3E9F14B7E2EB003FD30D /* NSString+HTML.h */,
+				910E3EA014B7E2EB003FD30D /* NSString+HTML.m */,
+				910E3EA214B7E40C003FD30D /* GTMNSString+HTML.h */,
+				910E3EA314B7E40C003FD30D /* GTMNSString+HTML.m */,
+				9167143F142B9F980027615A /* Wordy-Info.plist */,
+				91671440142B9F980027615A /* InfoPlist.strings */,
+				91671443142B9F980027615A /* main.m */,
+				91671445142B9F980027615A /* Wordy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9167145B142B9FFB0027615A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9167146F142B9FFC0027615A /* libRestKitNetwork.a */,
+				91671471142B9FFC0027615A /* libRestKitObjectMapping.a */,
+				91671473142B9FFC0027615A /* libRestKitSupport.a */,
+				91671475142B9FFC0027615A /* libRestKitJSONParser+NXJSON.a */,
+				91671477142B9FFC0027615A /* libRestKitJSONParserYAJL.a */,
+				91671479142B9FFC0027615A /* libRestKitJSONParserSBJSON.a */,
+				9167147B142B9FFC0027615A /* libRestKitJSONParserJSONKit.a */,
+				9167147D142B9FFC0027615A /* libRestKitXMLParserLibxml.a */,
+				9167147F142B9FFC0027615A /* libRestKitCoreData.a */,
+				91671481142B9FFC0027615A /* libRestKitThree20.a */,
+				91671483142B9FFC0027615A /* UISpec.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9193524114CE5938009232F9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9193524614CE5986009232F9 /* HoeflerText-Roman.otf */,
+				9193524414CE5971009232F9 /* HoeflerText-BoldItalic.otf */,
+				9193524214CE5962009232F9 /* HoeflerText-RegularItalicSwSC.otf */,
+				9193523F14CE585B009232F9 /* HoeflerText-RegularItalic.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		91A66B1E145376A7009ED381 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9193521A14CE4380009232F9 /* WordyInformation.png */,
+				9193521B14CE4380009232F9 /* WordyInformation@2x.png */,
+				91F52A7814B7AA01000CE1FB /* WordyLogo.png */,
+				91F52A7914B7AA01000CE1FB /* WordyLogo@2x.png */,
+				91F52A9014B7CBCD000CE1FB /* WordyReferenceIcon.png */,
+				91F52A9114B7CBCD000CE1FB /* WordyReferenceIcon@2x.png */,
+				91F52A8814B7CB76000CE1FB /* WordyAntonymIcon.png */,
+				91F52A8914B7CB76000CE1FB /* WordyAntonymIcon@2x.png */,
+				91F52A8A14B7CB76000CE1FB /* WordyDefinitionIcon.png */,
+				91F52A8B14B7CB76000CE1FB /* WordyDefinitionIcon@2x.png */,
+				91F52A8414B7CB54000CE1FB /* WordySynonymIcon.png */,
+				91F52A8514B7CB54000CE1FB /* WordySynonymIcon@2x.png */,
+				91F52A7C14B7C4C0000CE1FB /* WordyBasicButton.png */,
+				91F52A7D14B7C4C0000CE1FB /* WordyBasicButton@2x.png */,
+				91F52A7E14B7C4C0000CE1FB /* WordyBasicButtonPressed.png */,
+				91F52A7F14B7C4C0000CE1FB /* WordyBasicButtonPressed@2x.png */,
+				9148CA4C14B1700900061678 /* WordyTabBarItemBackground.png */,
+				9148CA4D14B1700900061678 /* WordyTabBarItemBackground@2x.png */,
+				91A2DAC014B0DE7000C40BF7 /* WordyTabBarBackground.png */,
+				91A2DAC114B0DE7000C40BF7 /* WordyTabBarBackground@2x.png */,
+				91832EC514AE6BAA00CFA844 /* WordyBackgroundNoise.png */,
+				91832E9F14AE414900CFA844 /* ERNavigationButtonBack.png */,
+				91832EA014AE414900CFA844 /* ERNavigationButtonBack@2x.png */,
+				91832EA114AE414900CFA844 /* ERNavigationButtonBackPressed.png */,
+				91832EA214AE414900CFA844 /* ERNavigationButtonBackPressed@2x.png */,
+				91832EA314AE414900CFA844 /* ERNavigationButtonSquare.png */,
+				91832EA414AE414900CFA844 /* ERNavigationButtonSquare@2x.png */,
+				91832EA514AE414900CFA844 /* ERNavigationButtonSquarePressed.png */,
+				91832EA614AE414900CFA844 /* ERNavigationButtonSquarePressed@2x.png */,
+				91832E8F14AE3B2700CFA844 /* WDHeaderBackground.png */,
+				91832E9014AE3B2700CFA844 /* WDHeaderBackground@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		91671432142B9F980027615A /* Wordy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91671454142B9F980027615A /* Build configuration list for PBXNativeTarget "Wordy" */;
+			buildPhases = (
+				9167142F142B9F980027615A /* Sources */,
+				91671430142B9F980027615A /* Frameworks */,
+				91671431142B9F980027615A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91671485142BA0AC0027615A /* PBXTargetDependency */,
+			);
+			name = Wordy;
+			productName = Wordy;
+			productReference = 91671433142B9F980027615A /* Wordy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9167142A142B9F980027615A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "University of Colorado, Boulder";
+			};
+			buildConfigurationList = 9167142D142B9F980027615A /* Build configuration list for PBXProject "Wordy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 91671428142B9F980027615A;
+			productRefGroup = 91671434142B9F980027615A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9167145B142B9FFB0027615A /* Products */;
+					ProjectRef = 9167145A142B9FFB0027615A /* RestKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				91671432142B9F980027615A /* Wordy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9167146F142B9FFC0027615A /* libRestKitNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitNetwork.a;
+			remoteRef = 9167146E142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671471142B9FFC0027615A /* libRestKitObjectMapping.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitObjectMapping.a;
+			remoteRef = 91671470142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671473142B9FFC0027615A /* libRestKitSupport.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitSupport.a;
+			remoteRef = 91671472142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671475142B9FFC0027615A /* libRestKitJSONParser+NXJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			name = "libRestKitJSONParser+NXJSON.a";
+			path = libRestKitJSONParserNXJSON.a;
+			remoteRef = 91671474142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671477142B9FFC0027615A /* libRestKitJSONParserYAJL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserYAJL.a;
+			remoteRef = 91671476142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671479142B9FFC0027615A /* libRestKitJSONParserSBJSON.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserSBJSON.a;
+			remoteRef = 91671478142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9167147B142B9FFC0027615A /* libRestKitJSONParserJSONKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitJSONParserJSONKit.a;
+			remoteRef = 9167147A142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9167147D142B9FFC0027615A /* libRestKitXMLParserLibxml.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitXMLParserLibxml.a;
+			remoteRef = 9167147C142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9167147F142B9FFC0027615A /* libRestKitCoreData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitCoreData.a;
+			remoteRef = 9167147E142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671481142B9FFC0027615A /* libRestKitThree20.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKitThree20.a;
+			remoteRef = 91671480142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91671483142B9FFC0027615A /* UISpec.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UISpec.app;
+			remoteRef = 91671482142B9FFC0027615A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91671431142B9F980027615A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91671442142B9F980027615A /* InfoPlist.strings in Resources */,
+				9167144B142B9F980027615A /* MainWindow.xib in Resources */,
+				91671451142B9F980027615A /* WordyViewController.xib in Resources */,
+				9187E6CC1432708E0081DFA1 /* DefinitionView.xib in Resources */,
+				9187E6F5143288510081DFA1 /* DefinitionCell.xib in Resources */,
+				9164CA3614AD2BFD009C84C6 /* ERIcon114.png in Resources */,
+				91AF344614AD4A44004ADC4D /* RelatedView.xib in Resources */,
+				91832E9114AE3B2700CFA844 /* WDHeaderBackground.png in Resources */,
+				91832E9214AE3B2700CFA844 /* WDHeaderBackground@2x.png in Resources */,
+				91832EA714AE414900CFA844 /* ERNavigationButtonBack.png in Resources */,
+				91832EA814AE414900CFA844 /* ERNavigationButtonBack@2x.png in Resources */,
+				91832EA914AE414900CFA844 /* ERNavigationButtonBackPressed.png in Resources */,
+				91832EAA14AE414900CFA844 /* ERNavigationButtonBackPressed@2x.png in Resources */,
+				91832EAB14AE414900CFA844 /* ERNavigationButtonSquare.png in Resources */,
+				91832EAC14AE414900CFA844 /* ERNavigationButtonSquare@2x.png in Resources */,
+				91832EAD14AE414900CFA844 /* ERNavigationButtonSquarePressed.png in Resources */,
+				91832EAE14AE414900CFA844 /* ERNavigationButtonSquarePressed@2x.png in Resources */,
+				91832EC614AE6BAA00CFA844 /* WordyBackgroundNoise.png in Resources */,
+				91A2DAC214B0DE7000C40BF7 /* WordyTabBarBackground.png in Resources */,
+				91A2DAC314B0DE7000C40BF7 /* WordyTabBarBackground@2x.png in Resources */,
+				9148CA4E14B1700900061678 /* WordyTabBarItemBackground.png in Resources */,
+				9148CA4F14B1700900061678 /* WordyTabBarItemBackground@2x.png in Resources */,
+				91F52A7A14B7AA01000CE1FB /* WordyLogo.png in Resources */,
+				91F52A7B14B7AA01000CE1FB /* WordyLogo@2x.png in Resources */,
+				91F52A8014B7C4C0000CE1FB /* WordyBasicButton.png in Resources */,
+				91F52A8114B7C4C0000CE1FB /* WordyBasicButton@2x.png in Resources */,
+				91F52A8214B7C4C0000CE1FB /* WordyBasicButtonPressed.png in Resources */,
+				91F52A8314B7C4C0000CE1FB /* WordyBasicButtonPressed@2x.png in Resources */,
+				91F52A8614B7CB54000CE1FB /* WordySynonymIcon.png in Resources */,
+				91F52A8714B7CB54000CE1FB /* WordySynonymIcon@2x.png in Resources */,
+				91F52A8C14B7CB76000CE1FB /* WordyAntonymIcon.png in Resources */,
+				91F52A8D14B7CB76000CE1FB /* WordyAntonymIcon@2x.png in Resources */,
+				91F52A8E14B7CB76000CE1FB /* WordyDefinitionIcon.png in Resources */,
+				91F52A8F14B7CB76000CE1FB /* WordyDefinitionIcon@2x.png in Resources */,
+				91F52A9214B7CBCD000CE1FB /* WordyReferenceIcon.png in Resources */,
+				91F52A9314B7CBCD000CE1FB /* WordyReferenceIcon@2x.png in Resources */,
+				9122B26B14B8E79B0069609B /* ERIcon57.png in Resources */,
+				9193521914CE398E009232F9 /* InformationViewController.xib in Resources */,
+				9193521C14CE4380009232F9 /* WordyInformation.png in Resources */,
+				9193521D14CE4380009232F9 /* WordyInformation@2x.png in Resources */,
+				9193524014CE585C009232F9 /* HoeflerText-RegularItalic.otf in Resources */,
+				9193524314CE5962009232F9 /* HoeflerText-RegularItalicSwSC.otf in Resources */,
+				9193524514CE5971009232F9 /* HoeflerText-BoldItalic.otf in Resources */,
+				9193524714CE5986009232F9 /* HoeflerText-Roman.otf in Resources */,
+				9157B37214CE014000852AE4 /* wordnikApiKey.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9167142F142B9F980027615A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91671444142B9F980027615A /* main.m in Sources */,
+				91671448142B9F980027615A /* WordyAppDelegate.m in Sources */,
+				9167144E142B9F980027615A /* WordyViewController.m in Sources */,
+				9187E6CB1432708E0081DFA1 /* DefinitionViewController.m in Sources */,
+				9187E6E4143278EE0081DFA1 /* Definition.m in Sources */,
+				9187E6E61432792A0081DFA1 /* Word.m in Sources */,
+				91C4652714AD3DD400553F42 /* RelatedWords.m in Sources */,
+				91AF344914AD4A65004ADC4D /* RelatedViewController.m in Sources */,
+				91832ECC14AE776900CFA844 /* WordyUISearchBar.m in Sources */,
+				91A2DAC914B0FD7D00C40BF7 /* FlipsideTabBarController.m in Sources */,
+				915B0E8314B277F400BF24AD /* WordOfTheDay.m in Sources */,
+				9115856B14B798610058855D /* MBProgressHUD.m in Sources */,
+				910E3EA114B7E2EB003FD30D /* NSString+HTML.m in Sources */,
+				910E3EA414B7E40C003FD30D /* GTMNSString+HTML.m in Sources */,
+				9193521814CE398E009232F9 /* InformationViewController.m in Sources */,
+				9193524A14CE6088009232F9 /* SSLabel.m in Sources */,
+				9193524D14CE8915009232F9 /* Pronunciation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91671485142BA0AC0027615A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 91671484142BA0AC0027615A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		91671440142B9F980027615A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91671441142B9F980027615A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		91671449142B9F980027615A /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9167144A142B9F980027615A /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		9167144F142B9F980027615A /* WordyViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91671450142B9F980027615A /* en */,
+			);
+			name = WordyViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		91671452142B9F980027615A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		91671453142B9F980027615A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Glenn Tivona";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "0822434D-3E94-4321-9E1D-3E0852CADD8F";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91671455142B9F980027615A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordy/Wordy-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
+				INFOPLIST_FILE = "Wordy/Wordy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)\"";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Wordy;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		91671456142B9F980027615A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordy/Wordy-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
+				INFOPLIST_FILE = "Wordy/Wordy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)\"";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Wordy;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9167142D142B9F980027615A /* Build configuration list for PBXProject "Wordy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91671452142B9F980027615A /* Debug */,
+				91671453142B9F980027615A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91671454142B9F980027615A /* Build configuration list for PBXNativeTarget "Wordy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91671455142B9F980027615A /* Debug */,
+				91671456142B9F980027615A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9167142A142B9F980027615A /* Project object */;
+}
