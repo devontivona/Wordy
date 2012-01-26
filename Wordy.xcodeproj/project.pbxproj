@@ -61,6 +61,9 @@
 		91A2DAC914B0FD7D00C40BF7 /* FlipsideTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A2DAC814B0FD7D00C40BF7 /* FlipsideTabBarController.m */; };
 		91AF344614AD4A44004ADC4D /* RelatedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91AF344514AD4A44004ADC4D /* RelatedView.xib */; };
 		91AF344914AD4A65004ADC4D /* RelatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AF344814AD4A65004ADC4D /* RelatedViewController.m */; };
+		91B48FF014D11D0300CAD206 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B48FE614D11C9700CAD206 /* libRestKit.a */; };
+		91B48FF214D11D6400CAD206 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B48FF114D11D6400CAD206 /* Security.framework */; };
+		91B48FF414D11D7500CAD206 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B48FF314D11D7500CAD206 /* libxml2.dylib */; };
 		91C4652714AD3DD400553F42 /* RelatedWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C4652614AD3DD400553F42 /* RelatedWords.m */; };
 		91F52A7A14B7AA01000CE1FB /* WordyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7814B7AA01000CE1FB /* WordyLogo.png */; };
 		91F52A7B14B7AA01000CE1FB /* WordyLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A7914B7AA01000CE1FB /* WordyLogo@2x.png */; };
@@ -77,6 +80,44 @@
 		91F52A9214B7CBCD000CE1FB /* WordyReferenceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A9014B7CBCD000CE1FB /* WordyReferenceIcon.png */; };
 		91F52A9314B7CBCD000CE1FB /* WordyReferenceIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F52A9114B7CBCD000CE1FB /* WordyReferenceIcon@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		91B48FE514D11C9700CAD206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		91B48FE714D11C9700CAD206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		91B48FE914D11C9700CAD206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		91B48FEB14D11C9700CAD206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		91B48FEE14D11CE300CAD206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		910E3E9F14B7E2EB003FD30D /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
@@ -151,6 +192,9 @@
 		91AF344514AD4A44004ADC4D /* RelatedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelatedView.xib; sourceTree = "<group>"; };
 		91AF344714AD4A65004ADC4D /* RelatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedViewController.h; sourceTree = "<group>"; };
 		91AF344814AD4A65004ADC4D /* RelatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedViewController.m; sourceTree = "<group>"; };
+		91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		91B48FF114D11D6400CAD206 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		91B48FF314D11D7500CAD206 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		91C4652514AD3DD400553F42 /* RelatedWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedWords.h; sourceTree = "<group>"; };
 		91C4652614AD3DD400553F42 /* RelatedWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedWords.m; sourceTree = "<group>"; };
 		91F52A7814B7AA01000CE1FB /* WordyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordyLogo.png; sourceTree = "<group>"; };
@@ -174,6 +218,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B48FF414D11D7500CAD206 /* libxml2.dylib in Frameworks */,
+				91B48FF214D11D6400CAD206 /* Security.framework in Frameworks */,
+				91B48FF014D11D0300CAD206 /* libRestKit.a in Frameworks */,
 				91671492142BA0F60027615A /* SystemConfiguration.framework in Frameworks */,
 				91671490142BA0EF0027615A /* MobileCoreServices.framework in Frameworks */,
 				9167148E142BA0E10027615A /* CoreData.framework in Frameworks */,
@@ -239,6 +286,7 @@
 		91671428142B9F980027615A = {
 			isa = PBXGroup;
 			children = (
+				91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */,
 				9122B26A14B8E79B0069609B /* ERIcon57.png */,
 				9164CA3514AD2BFD009C84C6 /* ERIcon114.png */,
 				9167143D142B9F980027615A /* Wordy */,
@@ -258,6 +306,8 @@
 		91671436142B9F980027615A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91B48FF314D11D7500CAD206 /* libxml2.dylib */,
+				91B48FF114D11D6400CAD206 /* Security.framework */,
 				91671491142BA0F60027615A /* SystemConfiguration.framework */,
 				9167148F142BA0EF0027615A /* MobileCoreServices.framework */,
 				9167148D142BA0E10027615A /* CoreData.framework */,
@@ -274,9 +324,9 @@
 			children = (
 				9193524814CE6088009232F9 /* SSLabel.h */,
 				9193524914CE6088009232F9 /* SSLabel.m */,
-				9193524114CE5938009232F9 /* Fonts */,
 				91671446142B9F980027615A /* WordyAppDelegate.h */,
 				91671447142B9F980027615A /* WordyAppDelegate.m */,
+				9193524114CE5938009232F9 /* Fonts */,
 				910E3EC714B8D1DC003FD30D /* Model */,
 				910E3EC814B8D1F1003FD30D /* View */,
 				910E3EC914B8D21C003FD30D /* Controller */,
@@ -353,6 +403,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		91B48FDC14D11C9700CAD206 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91B48FE614D11C9700CAD206 /* libRestKit.a */,
+				91B48FE814D11C9700CAD206 /* RestKitTests.octest */,
+				91B48FEA14D11C9700CAD206 /* RestKit.framework */,
+				91B48FEC14D11C9700CAD206 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,6 +428,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				91B48FEF14D11CE300CAD206 /* PBXTargetDependency */,
 			);
 			name = Wordy;
 			productName = Wordy;
@@ -392,12 +454,49 @@
 			mainGroup = 91671428142B9F980027615A;
 			productRefGroup = 91671434142B9F980027615A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 91B48FDC14D11C9700CAD206 /* Products */;
+					ProjectRef = 91B48FDB14D11C9700CAD206 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				91671432142B9F980027615A /* Wordy */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		91B48FE614D11C9700CAD206 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 91B48FE514D11C9700CAD206 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91B48FE814D11C9700CAD206 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 91B48FE714D11C9700CAD206 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91B48FEA14D11C9700CAD206 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 91B48FE914D11C9700CAD206 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		91B48FEC14D11C9700CAD206 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 91B48FEB14D11C9700CAD206 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		91671431142B9F980027615A /* Resources */ = {
@@ -480,6 +579,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		91B48FEF14D11CE300CAD206 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 91B48FEE14D11CE300CAD206 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		91671440142B9F980027615A /* InfoPlist.strings */ = {

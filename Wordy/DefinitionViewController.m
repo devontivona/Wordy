@@ -47,7 +47,7 @@
         headerLabel.shadowOffset = CGSizeMake(0.0, -1.0);
         headerLabel.shadowColor = [UIColor blackColor];
         headerLabel.textAlignment = UITextAlignmentCenter;
-        headerLabel.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+        headerLabel.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
         headerLabel.font = [UIFont boldSystemFontOfSize:15];
         return headerLabel;
     } else {

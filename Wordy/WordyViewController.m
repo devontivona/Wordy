@@ -23,6 +23,9 @@
 
 @interface WordyViewController()
 - (void)getEntryForWord:(NSString *)word;
+- (void)requestTimedOut:(id)sender;
+- (void)startRequestTimer;
+- (void)stopRequestTimer;
 @end
 
 @implementation WordyViewController
@@ -31,7 +34,7 @@
 @synthesize searchDisplayController;
 @synthesize background;
 @synthesize currentPronunciation;
-
+@synthesize data;
 
 #pragma mark - View lifecycle
 
@@ -60,8 +63,9 @@
     [wordOfTheDayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     wordOfTheDayButton.contentEdgeInsets = UIEdgeInsetsMake(9.0, 12.0, 9.0, 12.0);
-    wordOfTheDayButton.titleLabel.text = @"loading...";
+    [wordOfTheDayButton setTitle:@"loading" forState:UIControlStateNormal];
     [wordOfTheDayButton sizeToFit];
+    wordOfTheDayButton.frame = CGRectMake(floorf(160 - wordOfTheDayButton.frame.size.width/2), 225, wordOfTheDayButton.frame.size.width, wordOfTheDayButton.frame.size.height);
     wordOfTheDayButton.enabled = NO;
     
     [wordOfTheDayButton addTarget:self action:@selector(getWordOfTheDayEntry:) forControlEvents:UIControlEventTouchUpInside];
@@ -104,14 +108,16 @@
                                  cancelButtonTitle:nil 
                                  otherButtonTitles:@"OK", nil];
     
-    [RKRequestQueue sharedQueue].delegate = self;
+    [RKObjectManager sharedManager].client.requestQueue.delegate = self;
 
     [super viewDidLoad];
 }
 
 -(void)viewDidDisappear:(BOOL)animated 
 {
-    [[RKRequestQueue sharedQueue] cancelAllRequests];
+    [self stopRequestTimer];
+    [HUD hide:YES];
+    [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
     responseCounter = 0;
 
     [self.searchDisplayController.searchResultsTableView  deselectRowAtIndexPath:[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow] animated:animated];
@@ -120,21 +126,34 @@
 
 -(void)viewWillAppear:(BOOL)animated 
 {
-    flipsideTabBarController.viewControllers = nil;
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     
+    [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
+    flipsideTabBarController.viewControllers = nil;
     [self checkWordOfTheDayEntry];
     
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload
 {
-    [[RKRequestQueue sharedQueue] cancelAllRequests];
+    [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
+    [RKObjectManager sharedManager].client.requestQueue.delegate = nil;
+    
     responseCounter = 0;
 
     [self setSearchBar:nil];
     [self setSearchDisplayController:nil];
     [self setBackground:nil];
+    
+    [HUD hide:YES];
+    HUD.delegate = self;
+
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -161,6 +180,8 @@
 // Make a JSON call Wordnik to get the word of the day
 - (void)getWordOfTheDay
 {
+    [self startRequestTimer];
+
     NSString *resourcePath = [NSString stringWithFormat:@"/words.json/wordOfTheDay"];
     RKObjectMapping* wordOfTheDayMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[WordOfTheDay class]];
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath objectMapping:wordOfTheDayMapping delegate:self];
@@ -204,7 +225,7 @@
 }
 
 - (void)getEntryForWord:(NSString *)word {
-    
+    [self startRequestTimer];
     [self.view endEditing:YES];
     	
     if (self.view.window) {
@@ -278,7 +299,7 @@
     resourcePath = [resourcePath stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
     RKObjectMapping* wordMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Word class]];
     
-    if(![searchString isEqualToString:@""]) {
+    if(![searchString isEqualToString:@""] && [[[RKClient sharedClient] reachabilityObserver] isReachabilityDetermined] && [[RKClient sharedClient] isNetworkReachable]) {
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath objectMapping:wordMapping delegate:self];
     }
     return NO;
@@ -328,6 +349,7 @@
 // We got a responce from Wordnik! If it is a word suggestion array, then put that array in the 
 // search result table. If it is a definition, flip to the FlipSideView and display the definitions.
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {  
+    [self stopRequestTimer];
     
     if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Word class]]) {
         [data removeAllObjects];
@@ -373,7 +395,7 @@
         } else {
             
             [HUD hide:YES];
-            [[RKRequestQueue sharedQueue] cancelAllRequests]; 
+            [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
             responseCounter = 0;
 
             [alertView show];
@@ -429,7 +451,7 @@
     if (responseCounter == 5) {
        
         [HUD hide:YES];
-        [[RKRequestQueue sharedQueue] cancelAllRequests]; 
+        [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
         responseCounter = 0;
         
         [flipsideTabBarController setViewControllers:viewControllers];
@@ -447,12 +469,15 @@
 // Something went wrong... Log the error and stop the spinner
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
     
+    [self stopRequestTimer];
     [HUD hide:YES];
-    [[RKRequestQueue sharedQueue] cancelAllRequests]; 
+    [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
     responseCounter = 0;
     
     if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[WordOfTheDay class]]) {
-        wordOfTheDayButton.titleLabel.text = @"unavailable";
+        [wordOfTheDayButton setTitle:@"unavailable" forState:UIControlStateNormal];
+        [wordOfTheDayButton sizeToFit];
+        wordOfTheDayButton.frame = CGRectMake(floorf(160 - wordOfTheDayButton.frame.size.width/2), 225, wordOfTheDayButton.frame.size.width, wordOfTheDayButton.frame.size.height);
         checkingWOTD = NO;
     }
     
@@ -460,6 +485,46 @@
     if (error.code == 2) {
         [alertView show];
     }
+}
+
+- (void)startRequestTimer
+{
+    NSLog(@"Request timer started.");
+
+    if (requestTimer == nil) {
+        requestTimer = [NSTimer scheduledTimerWithTimeInterval:15.0
+                                                        target:self
+                                                      selector:@selector(requestTimedOut:)
+                                                      userInfo:nil
+                                                       repeats:NO];
+    }
+}
+
+- (void)stopRequestTimer
+{
+    NSLog(@"Request timer stopped.");
+
+    [requestTimer invalidate];
+    requestTimer = nil;  
+}
+
+- (void)requestTimedOut:(id)sender
+{
+    NSLog(@"Request timer timed out.");
+    [self stopRequestTimer];
+    
+    checkingWOTD = NO;
+    
+    if ([wordOfTheDayButton.titleLabel.text isEqualToString:@"loading"]) {
+        [wordOfTheDayButton setTitle:@"unavailable" forState:UIControlStateNormal];
+        [wordOfTheDayButton sizeToFit];
+        wordOfTheDayButton.frame = CGRectMake(floorf(160 - wordOfTheDayButton.frame.size.width/2), 225, wordOfTheDayButton.frame.size.width, wordOfTheDayButton.frame.size.height);
+    }
+    
+    [HUD hide:YES];
+    [[RKObjectManager sharedManager].client.requestQueue cancelAllRequests]; 
+    responseCounter = 0;
+    [alertView show];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -474,6 +539,10 @@
     NSLog(@"Request Queue was suspended.");
 }
 
+- (void)requestQueueWasUnsuspended:(RKRequestQueue *)queue {
+    NSLog(@"Request Queue was unsuspended.");
+}
+
 - (void)requestDidTimeout:(RKRequest *)request {
     NSLog(@"Request Queue timed out.");
 
@@ -485,7 +554,6 @@
 
 - (void)requestQueue:(RKRequestQueue *)queue didFailRequest:(RKRequest *)request withError:(NSError *)error {
     NSLog(@"Request Queue failed with error: %@", error);
-
 }
 
 @end

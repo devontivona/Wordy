@@ -15,38 +15,37 @@
 #import "Pronunciation.h"
 
 @interface WordyViewController : UIViewController <RKObjectLoaderDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, FlipsideViewControllerDelegate, MBProgressHUDDelegate, RKRequestQueueDelegate> {
-    WordyUISearchBar *searchBar;
-    UISearchDisplayController *searchDisplayController;
-    UIActivityIndicatorView *activityIndicator;
-    NSMutableArray* data;
-    
+        
     UITabBarController *flipsideTabBarController;
     InformationViewController *informationViewController;
-    
+    UISearchDisplayController *searchDisplayController;
     NSMutableArray *viewControllers;
     
     NSString *currentWord;
     
     UIButton *wordOfTheDayButton;
-    
     UIAlertView *alertView;
+    WordyUISearchBar *searchBar;
+    UIActivityIndicatorView *activityIndicator;
     
     int responseCounter;
-
     BOOL checkingWOTD;
+    NSTimer *requestTimer;
     
     MBProgressHUD *HUD;
 }
 
 @property (nonatomic, retain) IBOutlet WordyUISearchBar *searchBar;
 @property (nonatomic, retain) IBOutlet UISearchDisplayController *searchDisplayController;
-@property (retain, nonatomic) IBOutlet UIImageView *background;
+@property (nonatomic, retain) IBOutlet UIImageView *background;
 
+@property (nonatomic, retain) NSMutableArray* data;
 @property (strong, nonatomic) Pronunciation *currentPronunciation;
 
-- (IBAction)getWordOfTheDayEntry:(id)sender;
+- (void)checkWordOfTheDayEntry;
+- (void)getWordOfTheDayEntry:(id)sender;
+
 - (IBAction)informationButtonTapped:(id)sender; 
 
-- (void)checkWordOfTheDayEntry;
 
 @end

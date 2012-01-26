@@ -124,8 +124,8 @@
     self.navigationTitle.titleView = label;
     label.text = [self.delegate getCurrentWord];    
     [label sizeToFit];
-    label.frame = CGRectInset(label.frame, 0, -10);
-    
+    label.frame = CGRectInset(label.frame, -10.0, 0.0);    
+
     [super viewDidLoad];
 }
 

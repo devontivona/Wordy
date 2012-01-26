@@ -14,15 +14,17 @@
 #import "WordOfTheDay.h"
 #import "RelatedWords.h"
 
+@interface WordyAppDelegate() 
+- (void)initializeRestKit;
+@end
+
 @implementation WordyAppDelegate
 
 @synthesize window = _window;
 @synthesize viewController= _viewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (void)initializeRestKit 
 {
-    // Override point for customization after application launch.
-    
     // Initialize RestKit and declare the base URL
     NSString* baseUrl = @"http://api.wordnik.com/v4";
     RKClient* client = [RKClient clientWithBaseURL:baseUrl];    
@@ -61,18 +63,25 @@
     RKObjectMapping *pronunciationMapping = [RKObjectMapping mappingForClass:[Pronunciation class]];
     [pronunciationMapping mapKeyPath:@"raw" toAttribute:@"string"];
     
-    
     // Add the mappings to the RKObjectManager and provide my API key in the HTTP header.
     [manager.mappingProvider addObjectMapping:definitionMapping];
     [manager.mappingProvider addObjectMapping:wordMapping];
     [manager.mappingProvider addObjectMapping:relatedWordsMapping];
     [manager.mappingProvider addObjectMapping:wordOfTheDayMapping];
     [manager.mappingProvider addObjectMapping:pronunciationMapping];
-
-    // Set a request timeout of 20 seconds
-    [[RKRequestQueue sharedQueue] setRequestTimeout:20.0];
-    [[RKRequestQueue sharedQueue] setShowsNetworkActivityIndicatorWhenBusy:YES];
     
+    // Set a request timeout of 20 seconds
+    [[client requestQueue] setRequestTimeout:20.0];
+    [[client requestQueue] setShowsNetworkActivityIndicatorWhenBusy:NO];
+    
+    [RKObjectManager setSharedManager:manager];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.   
+    [self initializeRestKit];
+
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -104,7 +113,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-   [self.viewController checkWordOfTheDayEntry];
+    if ([[[RKClient sharedClient] reachabilityObserver] isReachabilityDetermined] && [[RKClient sharedClient] isNetworkReachable]) {
+        [self.viewController checkWordOfTheDayEntry];
+    }
     
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
