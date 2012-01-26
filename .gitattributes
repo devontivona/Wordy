@@ -1,0 +1,8 @@
+# Classifying Xcode's Various Files
+
+*.pbxproj 	binary -merge
+*.nib 		binary -merge
+*.xib 		binary -merge
+*.m		diff=objc
+*.mm		diff=objc
+*.plist		diff=plconv
