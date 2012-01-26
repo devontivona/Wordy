@@ -36,6 +36,34 @@
     }
 }
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    Pronunciation *currentPronunciation = ((WordyViewController *)self.delegate).currentPronunciation;
+    
+    if (![currentPronunciation.string isEqualToString:@""] && currentPronunciation != nil) {
+        UILabel *headerLabel = [[UILabel alloc] init];
+        headerLabel.text = currentPronunciation.string;
+        headerLabel.textColor = [UIColor whiteColor];
+        headerLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+        headerLabel.shadowColor = [UIColor blackColor];
+        headerLabel.textAlignment = UITextAlignmentCenter;
+        headerLabel.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+        headerLabel.font = [UIFont boldSystemFontOfSize:15];
+        return headerLabel;
+    } else {
+        return nil;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    Pronunciation *currentPronunciation = ((WordyViewController *)self.delegate).currentPronunciation;
+    if ([currentPronunciation.string isEqualToString:@""] || currentPronunciation == nil) {
+        return 0;
+    } else {
+        return 34;
+    }
+}
+
 // Return the number of rows in the section.
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     return [self.definitions count];
@@ -121,18 +149,9 @@
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
     self.navigationTitle.titleView = label;
-    
-    
-    Pronunciation *currentPronunciation = ((WordyViewController *)self.delegate).currentPronunciation;
-    
-    if (currentPronunciation && ![currentPronunciation.string isEqualToString:@""]) {
-        label.text = [NSString stringWithFormat:@"%@ %@", ((Definition*)[_definitions objectAtIndex:0]).word, currentPronunciation.string];
-    } else {
-        label.text = ((Definition*)[_definitions objectAtIndex:0]).word;
-    }
-    
-    
+    label.text = ((Definition*)[_definitions objectAtIndex:0]).word;
     [label sizeToFit];
+    label.frame = CGRectInset(label.frame, -10.0, 0.0);    
     
     // self.navigationTitle.title = @"Definitions";
     

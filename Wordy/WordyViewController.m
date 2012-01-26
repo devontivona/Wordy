@@ -21,7 +21,12 @@
 #import <RestKit/RestKit.h>
 #import "NSString+HTML.h"
 
+@interface WordyViewController()
+- (void)getEntryForWord:(NSString *)word;
+@end
+
 @implementation WordyViewController
+
 @synthesize searchBar;
 @synthesize searchDisplayController;
 @synthesize background;
@@ -42,8 +47,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {    
-    hasInternet = YES;
-    
     wordOfTheDayButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     UIEdgeInsets buttonEdgeInsets = UIEdgeInsetsMake(9.0, 9.0, 9.0, 9.0);
@@ -57,7 +60,9 @@
     [wordOfTheDayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     wordOfTheDayButton.contentEdgeInsets = UIEdgeInsetsMake(9.0, 12.0, 9.0, 12.0);
-    wordOfTheDayButton.hidden = YES;
+    wordOfTheDayButton.titleLabel.text = @"loading...";
+    [wordOfTheDayButton sizeToFit];
+    wordOfTheDayButton.enabled = NO;
     
     [wordOfTheDayButton addTarget:self action:@selector(getWordOfTheDayEntry:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -93,12 +98,20 @@
     
     checkingWOTD = NO;
     
+    alertView = [[UIAlertView alloc] initWithTitle:@"Connection Error" 
+                                           message:@"I am having difficulty contacting the server. Are you connected to the internet?"
+                                          delegate:nil 
+                                 cancelButtonTitle:nil 
+                                 otherButtonTitles:@"OK", nil];
+    
+    [RKRequestQueue sharedQueue].delegate = self;
+
     [super viewDidLoad];
 }
 
 -(void)viewDidDisappear:(BOOL)animated 
 {
-    [[RKRequestQueue sharedQueue] cancelRequestsWithDelegate:self];
+    [[RKRequestQueue sharedQueue] cancelAllRequests];
     responseCounter = 0;
 
     [self.searchDisplayController.searchResultsTableView  deselectRowAtIndexPath:[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow] animated:animated];
@@ -107,7 +120,6 @@
 
 -(void)viewWillAppear:(BOOL)animated 
 {
-    hasInternet = YES;    
     flipsideTabBarController.viewControllers = nil;
     
     [self checkWordOfTheDayEntry];
@@ -117,7 +129,7 @@
 
 - (void)viewDidUnload
 {
-    [[RKRequestQueue sharedQueue] cancelRequestsWithDelegate:self];
+    [[RKRequestQueue sharedQueue] cancelAllRequests];
     responseCounter = 0;
 
     [self setSearchBar:nil];
@@ -143,29 +155,14 @@
 }
 
 - (IBAction)getWordOfTheDayEntry:(id)sender {
-    [self getEntryForWord:wordOfTheDayButton.titleLabel.text];
+    [self performSelector:@selector(getEntryForWord:) withObject:wordOfTheDayButton.titleLabel.text];
 }
 
 // Make a JSON call Wordnik to get the word of the day
 - (void)getWordOfTheDay
 {
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-	
-    HUD.delegate = self;
-    HUD.labelText = @"Loading";
-	HUD.square = YES;
-    
-    [HUD show:YES];
-    [NSTimer scheduledTimerWithTimeInterval:20.0
-                                     target:self
-                                   selector:@selector(handleRequestTimeout)
-                                   userInfo:nil
-                                    repeats:NO];
-    
     NSString *resourcePath = [NSString stringWithFormat:@"/words.json/wordOfTheDay"];
     RKObjectMapping* wordOfTheDayMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[WordOfTheDay class]];
-    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath objectMapping:wordOfTheDayMapping delegate:self];
 }
 
@@ -204,12 +201,9 @@
     objectLoader.objectMapping = relatedWordsMapping;
     
     [objectLoader send];
-    //[[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath objectMapping:relatedWordsMapping delegate:self];
 }
 
 - (void)getEntryForWord:(NSString *)word {
-    hasInternet = YES;
-    shouldError = YES;
     
     [self.view endEditing:YES];
     	
@@ -226,14 +220,8 @@
 	HUD.square = YES;
     
     [HUD show:YES];
-    [NSTimer scheduledTimerWithTimeInterval:20.0
-                                     target:self
-                                   selector:@selector(handleRequestTimeout)
-                                   userInfo:nil
-                                    repeats:NO];
-
-    
     responseCounter = 0;
+    
     currentWord = [word copy];
     
     [self getDefinition:word];
@@ -258,16 +246,17 @@
         NSString *storedDate = [dateFormatter stringFromDate:wordOfTheDayTimestamp];
         NSString *todayDate = [dateFormatter stringFromDate:[NSDate date]];
         
-        NSLog([NSString stringWithFormat:@"Old: %@, New: %@", storedDate, todayDate]);
+        NSLog(@"Old: %@, New: %@", storedDate, todayDate);
         
         if ([todayDate isEqualToString:storedDate]) {
+            
             NSLog(@"I am going to use a cached word");
             
             NSString *wordOfTheDay = [defaults objectForKey:@"wordOfTheDay"];
             [wordOfTheDayButton setTitle:wordOfTheDay forState:UIControlStateNormal];
             [wordOfTheDayButton sizeToFit];
             wordOfTheDayButton.frame = CGRectMake(floorf(160 - wordOfTheDayButton.frame.size.width/2), 225, wordOfTheDayButton.frame.size.width, wordOfTheDayButton.frame.size.height);
-            wordOfTheDayButton.hidden = NO;
+            wordOfTheDayButton.enabled = YES;
             checkingWOTD = NO;
         } else {
             [self getWordOfTheDay];
@@ -325,6 +314,7 @@
     
     // Configure the cell.
     cell.textLabel.text = [data objectAtIndex:indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
 }
 
@@ -339,8 +329,6 @@
 // search result table. If it is a definition, flip to the FlipSideView and display the definitions.
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects {  
     
-    hasInternet = YES;
-        
     if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Word class]]) {
         [data removeAllObjects];
                 
@@ -351,18 +339,19 @@
         [self.searchDisplayController.searchResultsTableView reloadData];
         
     } else if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[WordOfTheDay class]]) {
-        [HUD hide:YES];
-            
+                
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+                
         for (WordOfTheDay *word in objects) {
+            
+            NSLog(@"Word of the Day: %@", word.word);
             
             [wordOfTheDayButton setTitle:word.word forState:UIControlStateNormal];
             [wordOfTheDayButton sizeToFit];
 
             wordOfTheDayButton.frame = CGRectMake(floorf(160 - wordOfTheDayButton.frame.size.width/2), 225, wordOfTheDayButton.frame.size.width, wordOfTheDayButton.frame.size.height);
                         
-            wordOfTheDayButton.hidden = NO;
+            wordOfTheDayButton.enabled = YES;
             [defaults setObject:word.word forKey:@"wordOfTheDay"];
             [defaults setObject:[NSDate date] forKey:@"wordOfTheDayTimestamp"];
         }
@@ -382,15 +371,11 @@
             
             [viewControllers replaceObjectAtIndex:0 withObject:definitionViewController];
         } else {
-            [[RKRequestQueue sharedQueue] cancelRequestsWithDelegate:self]; 
-            responseCounter = 0;
-            [HUD hide:YES];
             
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oh no!" 
-                                                                message:@"That word is not in the dictionary. Try another word?"
-                                                               delegate:nil 
-                                                      cancelButtonTitle:nil 
-                                                      otherButtonTitles:@"OK", nil];
+            [HUD hide:YES];
+            [[RKRequestQueue sharedQueue] cancelAllRequests]; 
+            responseCounter = 0;
+
             [alertView show];
         }
     } else if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[RelatedWords class]]) {
@@ -434,14 +419,19 @@
         responseCounter++;
         if (objects.count) {
             currentPronunciation = (Pronunciation *)[objects objectAtIndex:0];
+        } else {
+            Pronunciation *emptyPronunciation;
+            emptyPronunciation.string = @"";
+            currentPronunciation = emptyPronunciation;
         }
     }
     
     if (responseCounter == 5) {
+       
         [HUD hide:YES];
-        
-        shouldError = NO;
+        [[RKRequestQueue sharedQueue] cancelAllRequests]; 
         responseCounter = 0;
+        
         [flipsideTabBarController setViewControllers:viewControllers];
         
         if(![self modalViewController]) {
@@ -456,51 +446,46 @@
 
 // Something went wrong... Log the error and stop the spinner
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    
     [HUD hide:YES];
-    [[RKRequestQueue sharedQueue] cancelRequestsWithDelegate:self]; 
+    [[RKRequestQueue sharedQueue] cancelAllRequests]; 
     responseCounter = 0;
     
     if (objectLoader.objectMapping == [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[WordOfTheDay class]]) {
+        wordOfTheDayButton.titleLabel.text = @"unavailable";
         checkingWOTD = NO;
     }
     
     NSLog(@"Encountered an error: %@", error);
-    if (error.code == 2 && hasInternet) {
-        hasInternet = NO;
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oh no!" 
-                                                            message:@"I am having difficulty contacting the server. Are you connected to the internet?"
-                                                           delegate:nil 
-                                                  cancelButtonTitle:nil 
-                                                  otherButtonTitles:@"OK", nil];
+    if (error.code == 2) {
         [alertView show];
     }
 }
-
-- (void)handleRequestTimeout {
-    checkingWOTD = NO;
-
-    [HUD hide:YES];
-    [[RKRequestQueue sharedQueue] cancelRequestsWithDelegate:self]; 
-    responseCounter = 0;
-
-    if (hasInternet && shouldError) {
-        hasInternet = NO;
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oh no!" 
-                                                            message:@"I am having difficulty contacting the server. Are you connected to the internet?"
-                                                           delegate:nil 
-                                                  cancelButtonTitle:nil 
-                                                  otherButtonTitles:@"OK", nil];
-        [alertView show];
-    }
-}
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - RKRequestQueue Delegate Methods
+
+- (void)requestQueueWasSuspended:(RKRequestQueue *)queue {
+    NSLog(@"Request Queue was suspended.");
+}
+
+- (void)requestDidTimeout:(RKRequest *)request {
+    NSLog(@"Request Queue timed out.");
+
+}
+
+- (void)requestQueueDidBeginLoading:(RKRequestQueue *)queue {
+    NSLog(@"Request Queue did begin loading");
+}
+
+- (void)requestQueue:(RKRequestQueue *)queue didFailRequest:(RKRequest *)request withError:(NSError *)error {
+    NSLog(@"Request Queue failed with error: %@", error);
+
 }
 
 @end

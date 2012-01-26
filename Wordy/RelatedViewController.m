@@ -64,6 +64,7 @@
     cell.textLabel.text = [_words objectAtIndex: indexPath.row];
     cell.backgroundColor = [UIColor whiteColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;    
 }
@@ -121,16 +122,9 @@
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
     self.navigationTitle.titleView = label;
-    
-    Pronunciation *currentPronunciation = ((WordyViewController *)self.delegate).currentPronunciation;
-    
-    if (currentPronunciation && ![currentPronunciation.string isEqualToString:@""]) {
-        label.text = [NSString stringWithFormat:@"%@ %@", [self.delegate getCurrentWord], currentPronunciation.string];
-    } else {
-        label.text = [self.delegate getCurrentWord];
-    }
-    
+    label.text = [self.delegate getCurrentWord];    
     [label sizeToFit];
+    label.frame = CGRectInset(label.frame, 0, -10);
     
     [super viewDidLoad];
 }

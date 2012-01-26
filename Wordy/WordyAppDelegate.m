@@ -27,9 +27,9 @@
     NSString* baseUrl = @"http://api.wordnik.com/v4";
     RKClient* client = [RKClient clientWithBaseURL:baseUrl];    
     RKObjectManager* manager = [RKObjectManager objectManagerWithBaseURL:baseUrl];
+    [manager setClient:client];
     
     NSURL *apiKeyUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"wordnikApiKey" ofType:@"txt"]]; 
-    
     NSString *apiKey = [NSString stringWithContentsOfURL:apiKeyUrl encoding:NSUTF8StringEncoding error:NULL];
     
     [client setValue:apiKey forHTTPHeaderField:@"api_key"];
@@ -69,6 +69,10 @@
     [manager.mappingProvider addObjectMapping:wordOfTheDayMapping];
     [manager.mappingProvider addObjectMapping:pronunciationMapping];
 
+    // Set a request timeout of 20 seconds
+    [[RKRequestQueue sharedQueue] setRequestTimeout:20.0];
+    [[RKRequestQueue sharedQueue] setShowsNetworkActivityIndicatorWhenBusy:YES];
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

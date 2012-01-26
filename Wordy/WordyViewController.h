@@ -29,10 +29,10 @@
     
     UIButton *wordOfTheDayButton;
     
+    UIAlertView *alertView;
+    
     int responseCounter;
 
-    BOOL hasInternet;
-    BOOL shouldError;
     BOOL checkingWOTD;
     
     MBProgressHUD *HUD;
