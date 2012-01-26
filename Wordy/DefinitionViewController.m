@@ -75,7 +75,7 @@
     CGSize maximumLabelSize = CGSizeMake(280,9999);
     Definition *currentDefinition = [self.definitions objectAtIndex:indexPath.row];
     CGSize cellSize = [[currentDefinition.text stringByDecodingHTMLEntities] sizeWithFont:[UIFont fontWithName:@"HoeflerText-Roman" size:15] constrainedToSize: maximumLabelSize lineBreakMode: UILineBreakModeWordWrap];
-    return cellSize.height+55;
+    return cellSize.height + ([currentDefinition.sourceDictionary isEqualToString:@""] ? 55 : 80);
 }
 
 // Return the correct part of speech and definition for each row
@@ -108,8 +108,20 @@
     definition.text = [currentDefinition.text stringByDecodingHTMLEntities];
     definition.font = [UIFont fontWithName:@"HoeflerText-Roman" size:15];
     definition.numberOfLines = 10;
-    definition.frame = CGRectMake(20, 43, 280, cellSize.height);
+    definition.frame = CGRectMake(20, 40, 280, cellSize.height);
     definition.backgroundColor = [UIColor clearColor];
+    
+    if (![currentDefinition.sourceDictionary isEqualToString:@""]) {
+        
+        SSLabel *source = [[SSLabel alloc] init];
+        source.text = [NSString stringWithFormat:@"Source: %@", [currentDefinition formatedSourceDictionary]];
+        source.font = [UIFont fontWithName:@"HoeflerText-RegularItalic" size:15];
+        source.numberOfLines = 10;
+        source.frame = CGRectMake(20, CGRectGetMaxY(definition.frame) + 8, 280, 18);
+        source.backgroundColor = [UIColor clearColor];
+        [cell addSubview:source];
+    }
+
     
     if (indexPath.row != 0) {
         UIView *dividerTop = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 280, 1)];

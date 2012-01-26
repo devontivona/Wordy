@@ -20,5 +20,7 @@
 @property (nonatomic, retain) NSString* sourceDictionary;
 @property (nonatomic, retain) NSNumber* sequence;
 
+- (NSString *)formatedSourceDictionary;
+
 @end
 
